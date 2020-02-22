@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div v-for="user in users" v-bind:key="user">{{user.title}}</div>
+        <div v-for="item in news" v-bind:key="item">{{item.title}}</div>
     </div>
 </template>
 
@@ -10,20 +10,13 @@ import { fetchNewsList } from '../api/index.js'
 export default {
     data() {
         return {
-            users: []
+            news: []
         }
     },
     created() {
-        var vm = this;
-
         fetchNewsList()
-            .then(function(response) {
-                // console.log(response);
-                vm.users = response.data;
-            })
-            .catch(function(error) {
-                console.log(error);
-            });
+            .then(response => this.news = response.data)
+            .catch(error => console.log(error));
     },
 }
 </script>
