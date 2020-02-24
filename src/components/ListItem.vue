@@ -1,15 +1,15 @@
 <template>
-    <div>
-        <ul class="ask-list">
-            <li v-for="item in askItems" v-bind:key="item" class="post">
+  <div>
+        <ul class="news-list">
+            <li v-for="item in this.$store.state.news" v-bind:key="item" class="post">
                 <div class="points">
                     {{item.points}}
                 </div>
                 <div>
-                    <p class='ask-title'>
-                        <router-link v-bind:to="`/item/${item.id}`">
-                            {{ item.title }}
-                        </router-link>
+                    <p class='news-title'>
+                        <a v-bind:href="item.url">
+                            {{item.title}}
+                        </a>
                     </p>
                     <small class="link-text">
                         {{item.time_ago }} by 
@@ -20,27 +20,18 @@
             </li>
         </ul>
     </div>
-
 </template>
 
 <script>
-import { mapGetters} from 'vuex';
-// import {fetchAskList} from '../api/index.js';
 export default {
-    computed: {
-        ...mapGetters({
-            askItems: 'fetchedAsk'
-        }),
-    },
     created() {
-        this.$store.dispatch('FETCH_ASK');
+        this.$store.dispatch('FETCH_NEWS');
     },
-    
 }
 </script>
 
 <style scopped>
-    .ask-list {
+    .jobs-list {
         margin: 0;
         padding:0;
     }
@@ -58,7 +49,7 @@ export default {
         justify-content: center;
         color: #42b883;
     }
-    .ask-title {
+    .jobs-title {
         margin: 0;
     }
     .link-text {
