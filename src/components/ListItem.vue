@@ -36,41 +36,21 @@
 
 <script>
 export default {
-    created() {
-        // this.$store.dispatch('FETCH_NEWS');
-        const name= this.$route.name;
-        if (name === 'news') {
-            return this.$store.dispatch('FETCH_NEWS');
-        } else if (name === 'ask') {
-            return this.$store.dispatch('FETCH_ASK');
-        } else if (name === 'jobs') {
-            return this.$store.dispatch('FETCH_JOBS');
-        } 
-    },
     computed : {
         // eslint-disable-next-line vue/return-in-computed-property
         listItems() {
-        const name = this.$route.name;
-            if ( name === 'news') {
-                return this.$store.state.news;
-            } else if ( name === 'ask') {
-                return this.$store.state.ask;
-            } else if (name === 'jobs') {
-                return this.$store.state.jobs;
-            }
+            console.log('name : ' + this.$route.name);
+            return this.$store.state.list;
+        // const name = this.$route.name;
+        //     if ( name === 'news') {
+        //         return this.$store.state.news;
+        //     } else if ( name === 'ask') {
+        //         return this.$store.state.ask;
+        //     } else if (name === 'jobs') {
+        //         return this.$store.state.jobs;
+        //     }
         }
     }
-    // computed : {
-    //     listItems() {
-    //         if ( this.$route.name === 'news') {
-    //             return this.$store.state.news;
-    //         } else if (name === 'ask') {
-    //             return this.$store.state.ask;
-    //         } else if (name === 'jobs') {
-    //             return this.$store.state.jabs;
-    //         }
-    //     }
-    // }
 }
 </script>
 
