@@ -32,7 +32,7 @@ export default {
                     console.log(error);
                 });
         },
-        FETCH_LIST({ commit}, pageName) {
+        FETCH_LIST({ commit }, pageName) {
             fetchList(pageName)
                 .then(({ data }) => commit('SET_LIST', data))
                 .catch(error => {

@@ -23,7 +23,7 @@ export default {
       loadingStatus: false,
     };
   },
-  method: {
+  methods: {
     startSpinner() {
       this.loadingStatus = true;
     },

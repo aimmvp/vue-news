@@ -1,8 +1,8 @@
 <template>
   <div class="header">
-      <router-link to="news">News</router-link> | 
-      <router-link to="Ask">Ask</router-link> | 
-      <router-link to="Jobs">Jobs</router-link>
+      <router-link to="/news">News</router-link> | 
+      <router-link to="/Ask">Ask</router-link> | 
+      <router-link to="/Jobs">Jobs</router-link>
   </div>
 </template>
 
@@ -19,5 +19,9 @@
 }
 .header a{
     color: white;
+}
+.logo {
+    width: 30px;
+    margin-right: 18px;
 }
 </style>
